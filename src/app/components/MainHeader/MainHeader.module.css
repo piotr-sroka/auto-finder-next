@@ -1,0 +1,17 @@
+.header {
+    display: flex;
+    justify-content: flex-end;
+}
+.menu {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 8px;
+}
+.special-link {
+    background-color: beige;
+    color: #323232;
+    padding: 8px 24px;
+    border-radius: 8px;
+    cursor: pointer;
+}
