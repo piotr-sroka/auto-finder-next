@@ -1,9 +1,10 @@
 import Image from "next/image";
+import { SearchBar } from "./components/SearchBar/SearchBar";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      AutoFinder
-    </main>
+    <div className="flex flex-col items-center justify-between">
+      <SearchBar />
+    </div>
   );
 }
