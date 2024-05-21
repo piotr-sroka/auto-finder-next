@@ -9,7 +9,7 @@ export const Footer = () => {
     <footer className="bg-regal-beige/50 w-full px-12 py-4">
       <div className="mx-auto container flex justify-center gap-20">
         <div className="flex-1 p-4">
-          <h3 className="text-xl font-semibold mb-4">Find us</h3>
+          <h3 className="text-xl font-semibold mb-4 after:mt-2 after:content-[''] after:border-b-1 after:w-1/4 after:block after:border-regal-blue/50">Find us</h3>
           <div className="flex flex-col">
             <Link href="#" className="flex items-center gap-2 mb-2">
               <FacebookIcon width={24} />
@@ -29,7 +29,7 @@ export const Footer = () => {
           </div>
         </div>
         <div className="flex-1 p-4">
-          <h3 className="text-xl font-semibold mb-4">Services and tools</h3>
+          <h3 className="text-xl font-semibold mb-4 after:mt-2 after:content-[''] after:border-b-1 after:w-1/4 after:block after:border-regal-blue/50">Services and tools</h3>
           <div className="flex flex-col">
             <Link href="#" className="flex items-center gap-2 mb-2">
               Lorem ipsum
@@ -44,7 +44,7 @@ export const Footer = () => {
               Vestibulum
             </Link>
           </div>
-          <h3 className="text-xl font-semibold my-4">Partners</h3>
+          <h3 className="text-xl font-semibold my-4 after:mt-2 after:content-[''] after:border-b-1 after:w-1/4 after:block after:border-regal-blue/50">Partners</h3>
           <div className="flex flex-col">
             <Link href="#" className="flex items-center gap-2 mb-2">
               Lorem ipsum
@@ -58,7 +58,7 @@ export const Footer = () => {
           </div>
         </div>
         <div className="flex-1 p-4">
-          <h3 className="text-xl font-semibold mb-4">Customer service</h3>
+          <h3 className="text-xl font-semibold mb-4 after:mt-2 after:content-[''] after:border-b-1 after:w-1/4 after:block after:border-regal-blue/50">Customer service</h3>
           <div className="flex flex-col">
             <p>
               <span className="font-bold">Phone:</span>

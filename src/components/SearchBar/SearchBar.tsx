@@ -11,13 +11,13 @@ export const SearchBar = () => {
           id="search"
           type="text"
           placeholder="What are you looking for today?"
-          className="h-12 w-full rounded-full px-8 py-2 pr-14 border border-regal-blue"
+          className="h-12 w-full rounded-with-transition-on-focus px-8 py-2 pr-14 border border-regal-blue"
         />
         <span className="text-regal-blue-light absolute right-6 top-2">
           <SearchIcon width={32} height={32} />
         </span>
       </div>
-      <button className="rounded-full bg-regal-blue text-regal-beige px-8">Search</button>
+      <button className="rounded-lg hover:rounded-3xl transition-all duration-400 bg-regal-blue text-regal-beige px-8">Search</button>
     </div>
   );
 };

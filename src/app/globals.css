@@ -12,3 +12,11 @@ html, body {
     text-wrap: balance;
   }
 }
+
+.rounded-with-transition-on-hover {
+  @apply rounded-lg hover:rounded-3xl transition-all duration-400
+}
+
+.rounded-with-transition-on-focus {
+  @apply rounded-lg focus:rounded-3xl transition-all duration-400  
+}

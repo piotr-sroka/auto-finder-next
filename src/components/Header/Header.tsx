@@ -37,7 +37,7 @@ export const Header = () => {
   ];
 
   const specialLinkClasses =
-    "bg-regal-blue text-regal-beige py-2 px-4 rounded-full cursor-pointer hover:bg-regal-blue-light";
+    "bg-regal-blue text-regal-beige py-2 px-4 rounded-with-transition-on-hover cursor-pointer hover:bg-regal-blue-light";
 
   return (
     <header className="bg-regal-beige w-full">
@@ -47,13 +47,12 @@ export const Header = () => {
         </Link>
         <ul className="flex items-center gap-3 px-3 py-2">
           {menuItems.map((menuItem) => (
-            <Link
-              key={menuItem.link}
-              href={menuItem.link}
+            <li
               className={menuItem.special ? specialLinkClasses : undefined}
+              key={menuItem.link}
             >
-              {menuItem.label}
-            </Link>
+              <Link href={menuItem.link}>{menuItem.label}</Link>
+            </li>
           ))}
         </ul>
       </div>
