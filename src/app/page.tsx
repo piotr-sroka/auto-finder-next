@@ -1,6 +1,5 @@
-import Image from "next/image";
 import { SearchBar } from "../components/SearchBar/SearchBar";
-import { FaBeer, FaMinus, FaPlus } from "react-icons/fa";
+import { FaMinus, FaPlus } from "react-icons/fa";
 import Link from "next/link";
 
 const steps: { id: number; title: string; description: string }[] = [
