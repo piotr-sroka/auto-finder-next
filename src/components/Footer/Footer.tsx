@@ -6,8 +6,8 @@ import { XIcon } from "../svg/XIcon";
 
 export const Footer = () => {
   return (
-    <footer className="bg-regal-beige/50 w-full px-12 py-4">
-      <div className="mx-auto container flex justify-center gap-20">
+    <footer className="bg-regal-beige/50 w-full">
+      <div className="mx-auto container flex justify-center gap-20 px-12 py-4">
         <div className="flex-1 p-4">
           <h3 className="text-xl font-semibold mb-4 after:mt-2 after:content-[''] after:border-b-1 after:w-1/4 after:block after:border-regal-blue/50">Find us</h3>
           <div className="flex flex-col">
