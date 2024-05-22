@@ -15,11 +15,11 @@ export enum OfferType {
   COMPANY = "company"
 }
 
-interface Location {
+export interface Location {
     description: string;
 }
 
-export interface ShortInfo {
+export interface ShortInfoDto {
   id: string;
   title: string;
   brand: string;

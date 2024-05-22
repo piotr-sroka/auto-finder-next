@@ -1,8 +1,9 @@
 import { AdShortInfo } from "@/components/Ads/AdShortInfo/AdShortInfo";
-import { FuelType, OfferType, ShortInfo } from "@/models/AdInfoModels";
+import { AdvancedSearchBar } from "@/components/SearchBar/AdvancedSearchBar";
+import { FuelType, OfferType, ShortInfoDto } from "@/models/AdInfoModels";
 import { v4 as uuid } from "uuid";
 
-const temporaryAds: Partial<ShortInfo>[] = [
+const temporaryAds: Partial<ShortInfoDto>[] = [
   {
     id: uuid(),
     brand: "Audi",
@@ -55,7 +56,7 @@ export default function Ads() {
   return (
     <>
       <section className="container mx-auto p-12">
-        ADVANCED SEARCH ENGINE
+        <AdvancedSearchBar />
       </section>
       <section className="container mx-auto p-12">
         {temporaryAds.map((tempAd) => {
