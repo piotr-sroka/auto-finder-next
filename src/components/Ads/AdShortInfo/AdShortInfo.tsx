@@ -2,9 +2,11 @@ import { OfferType, ShortInfoDto } from "@/models/AdInfoModels";
 import Image from "next/image";
 import Link from "next/link";
 import { BsFillFuelPumpFill } from "react-icons/bs";
+import { FaRegUser } from "react-icons/fa";
 import { FiCalendar, FiMapPin } from "react-icons/fi";
 import { GiRoad } from "react-icons/gi";
 import { LuFuel } from "react-icons/lu";
+import { MdStorefront } from "react-icons/md";
 import { PiEngine, PiRoadHorizon } from "react-icons/pi";
 import { TbRoad } from "react-icons/tb";
 
@@ -74,11 +76,18 @@ export const AdShortInfo = (adInfo: Partial<ShortInfoDto>) => {
           </div>
         </div>
         <div className="text-sm pt-4 border-t-1 border-regal-blue-light/20 w-full flex">
-          <p>
-            {adInfo.offerType === OfferType.COMPANY
-              ? "Company offer"
-              : "Private offer"}
-          </p>
+          {adInfo.offerType === OfferType.COMPANY && (
+            <p className="flex items-center gap-1">
+              <MdStorefront />
+              Company offer
+            </p>
+          )}
+          {adInfo.offerType === OfferType.PRIVATE && (
+            <p className="flex items-center gap-1">
+              <FaRegUser />
+              Private offer
+            </p>
+          )}
           <p className="ms-auto flex gap-2 items-center">
             <FiMapPin /> {adInfo.location?.description}
           </p>

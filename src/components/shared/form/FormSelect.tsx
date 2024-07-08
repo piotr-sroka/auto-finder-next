@@ -1,4 +1,5 @@
 "use client";
+import { IdAndName } from "@/models/IdAndNameDto";
 import { useEffect, useRef, useState } from "react";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 
@@ -6,7 +7,7 @@ interface FormSelectProp {
   id: string;
   label: string;
   placeholder: string;
-  options: string[];
+  options: IdAndName[];
 }
 export const FormSelect = ({
   id,
@@ -67,17 +68,17 @@ export const FormSelect = ({
           } overflow-auto absolute left-0 w-full top-full border-1 border-t-0 border-regal-blue-light/40 bg-regal-beige p-4 rounded-b-lg max-h-80`}
         >
           {options.map((option) => (
-            <div key={option} className="flex w-full">
+            <div key={option.id} className="flex w-full">
               <label
-                htmlFor={option}
+                htmlFor={option.id}
                 className="flex w-full gap-2 items-center my-2"
               >
                 <input
-                  id={option}
+                  id={option.id}
                   type="checkbox"
                   className="w-5 h-5 accent-regal-blue"
                 />{" "}
-                {option}
+                {option.name}
               </label>
             </div>
           ))}
