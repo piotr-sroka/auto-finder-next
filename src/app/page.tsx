@@ -1,6 +1,7 @@
 import { SearchBar } from "../components/SearchBar/SearchBar";
 import { FaMinus, FaPlus } from "react-icons/fa";
 import Link from "next/link";
+import { createClient } from "@/utils/supabase/server";
 
 const steps: { id: number; title: string; description: string }[] = [
   {
@@ -43,7 +44,9 @@ const faqs: { id: number; question: string; answer: string }[] = [
   },
 ];
 
-export default function Home() {
+export default async function Home() {
+  const supabase = createClient();
+  const { data } = await supabase.auth.getUser();
   return (
     <>
       <div className="w-full bg-center h-[320px] sm:h-[400px] lg:h-[600px] xl:h-[800px] bg-[url('/assets/header-bg.jpeg')] md:bg-[center_bottom_-2rem] 2xl:bg-[center_bottom_-6rem] bg-cover"></div>
@@ -73,12 +76,14 @@ export default function Home() {
             ))}
           </div>
           <div className="flex justify-center gap-12 mt-12">
-            <Link
-              className="bg-regal-red text-regal-beige py-2 px-4 rounded-with-transition-on-hover cursor-pointer hover:bg-regal-red-light"
-              href="/register"
-            >
-              Register now
-            </Link>
+            {!data.user && (
+              <Link
+                className="bg-regal-red text-regal-beige py-2 px-4 rounded-with-transition-on-hover cursor-pointer hover:bg-regal-red-light"
+                href="/register"
+              >
+                Register now
+              </Link>
+            )}
             <Link
               className="bg-regal-blue text-regal-beige py-2 px-4 rounded-with-transition-on-hover cursor-pointer hover:bg-regal-blue-light"
               href="/ads/new"
