@@ -1,40 +1,77 @@
 import Link from "next/link";
 import { Logo } from "../svg/Logo";
+import { createClient } from "@/utils/supabase/server";
+import { logout } from "@/app/(auth)/actions";
 
 interface MenuItem {
   link: string;
   label: string;
   special: boolean;
+  action?: any;
 }
 
-export const Header = () => {
-  const menuItems: MenuItem[] = [
-    {
-      link: "/ads/new",
-      label: "Create new ad",
-      special: true,
-    },
-    {
-      link: "/login",
-      label: "Login",
-      special: true,
-    },
-    {
-      link: "/register",
-      label: "Register",
-      special: true,
-    },
-    {
-      link: "/help",
-      label: "Help",
-      special: false,
-    },
-    {
-      link: "/terms-and-conditions",
-      label: "Terms and conditions",
-      special: false,
-    },
-  ];
+export const Header = async () => {
+  let menuItems: MenuItem[] = [];
+  const supabase = createClient();
+  const { data, error } = await supabase.auth.getUser();
+  if (error || !data?.user) {
+    menuItems = [
+      {
+        link: "/ads/new",
+        label: "Create new ad",
+        special: true,
+      },
+      {
+        link: "/login",
+        label: "Login",
+        special: true,
+      },
+      {
+        link: "/register",
+        label: "Register",
+        special: true,
+      },
+      {
+        link: "/help",
+        label: "Help",
+        special: false,
+      },
+      {
+        link: "/terms-and-conditions",
+        label: "Terms and conditions",
+        special: false,
+      },
+    ];
+  } else {
+    menuItems = [
+      {
+        link: "/ads/new",
+        label: "Create new ad",
+        special: true,
+      },
+      {
+        link: "/profile",
+        label: "Profile",
+        special: true,
+      },
+      {
+        link: "",
+        label: "Logout",
+        special: true,
+        action: logout,
+      },
+      {
+        link: "/help",
+        label: "Help",
+        special: false,
+      },
+      {
+        link: "/terms-and-conditions",
+        label: "Terms and conditions",
+        special: false,
+      },
+    ];
+  }
 
   const specialLinkClasses =
     "bg-regal-blue text-regal-beige py-2 px-4 rounded-with-transition-on-hover cursor-pointer hover:bg-regal-blue-light";
@@ -51,7 +88,13 @@ export const Header = () => {
               className={menuItem.special ? specialLinkClasses : undefined}
               key={menuItem.link}
             >
-              <Link href={menuItem.link}>{menuItem.label}</Link>
+              {menuItem.action ? (
+                <form>
+                  <button formAction={menuItem.action}>{menuItem.label}</button>
+                </form>
+              ) : (
+                <Link href={menuItem.link}>{menuItem.label}</Link>
+              )}
             </li>
           ))}
         </ul>
