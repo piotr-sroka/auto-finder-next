@@ -24,5 +24,5 @@ export async function updateProfile(_prevState: any, formData: FormData) {
     redirect("/error");
   }
 
-//   revalidatePath("/profile", "layout");
+  revalidatePath("/profile", "layout");
 }

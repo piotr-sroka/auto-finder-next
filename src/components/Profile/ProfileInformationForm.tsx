@@ -1,7 +1,6 @@
 "use client";
 
-import { useFormState, useFormStatus } from "react-dom";
-import { FormError } from "@/models/FormModels";
+import { SaveProfileButtons } from "./SaveProfileButtons";
 
 interface FormSubmitProp {
   submit: any;
@@ -14,10 +13,6 @@ export const ProfileInformationForm = async ({
   firstName,
   lastName,
 }: FormSubmitProp) => {
-//   const { pending } = useFormStatus();       TODO
-  const [state, formAction] = useFormState(submit, {
-    formErrors: [] as FormError[],
-  });
   return (
     <form className="px-6 py-4">
       <div className="grid gap-4">
@@ -40,16 +35,7 @@ export const ProfileInformationForm = async ({
           />
         </div>
         <div className="flex justify-end gap-2">
-          <button className="bg-regal-blue text-regal-beige py-2 px-4 rounded-with-transition-on-hover cursor-pointer hover:bg-regal-red-light">
-            Cancel
-          </button>
-          <button
-            formAction={formAction}
-            className="bg-regal-red text-regal-beige py-2 px-4 rounded-with-transition-on-hover cursor-pointer hover:bg-regal-red-light"
-          >
-            {/* {pending ? "Saving..." : "Save"}        TODO */}
-            Save
-          </button>
+          <SaveProfileButtons submitAction={submit} />
         </div>
       </div>
     </form>
