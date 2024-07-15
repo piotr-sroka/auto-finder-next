@@ -1,3 +1,5 @@
+"use client";
+
 import { FormError } from "@/models/FormModels";
 import { useFormState, useFormStatus } from "react-dom"
 

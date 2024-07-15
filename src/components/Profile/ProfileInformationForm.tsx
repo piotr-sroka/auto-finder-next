@@ -1,5 +1,3 @@
-"use client";
-
 import { SaveProfileButtons } from "./SaveProfileButtons";
 
 interface FormSubmitProp {
